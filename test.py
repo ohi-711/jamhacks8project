@@ -1,14 +1,12 @@
 import cv2
 import mediapipe as mp
 
-
 # data_set_theme = [words]
 
 # for word in words:
 #     if image detection == __doc__
     #  display green screen
     
-
 cap = cv2.VideoCapture(0) # 0 uses web camera, 1 accesses phone 
 
 while True:
