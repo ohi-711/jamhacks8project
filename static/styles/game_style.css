@@ -1,0 +1,7 @@
+.text {
+    display: none; /* Hide all sentences by default */
+  }
+  
+  .visible {
+    display: block; /* Display the sentence */
+  }

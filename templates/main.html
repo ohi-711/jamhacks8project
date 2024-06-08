@@ -3,14 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/game_style.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Camera Stream</title>
     <style>
-        body { text-align: center; }
-        img { border: 1px solid black; }
+        body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+        .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+        .fa-anchor,.fa-coffee {font-size:200px}
+        body { text-align: center; background-color: #b100ff; } 
+        img { border: 1px solid #740ca2; }
     </style>
+    <script src="{{url_for('static', filename='script.js')}}"></script>
 </head>
+
+<div class="text-container">
+    <p class="text">This is the first sentence.</p>
+    <p class="text">This is the second sentence.</p>
+    <p class="text">This is the third sentence.</p>
+</div>
+<div class="prompt" id="prompt">Press space to continue</div>
 <body>
-    <h1>Camera Stream</h1>
     <img id="video" src="{{ url_for('video_feed') }}" width="640" height="480">
 </body>
 </html>
