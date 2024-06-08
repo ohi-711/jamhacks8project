@@ -29,19 +29,26 @@ button {
       font-family: CaviarDreams
 }
 
-
-.container {
-  height: 200px;
-  position: relative;
-  border: 3px solid blue;
-}
+.button {
+      background-color: #000000;
+      color: #FFFFFF;
+      padding: 10px;
+      border-radius: 10px;
+      -moz-border-radius: 10px;
+      -webkit-border-radius: 10px;
+      margin:10px
+  }
 
 .center {
   margin: 0;
   position: absolute;
   top: 50%;
   left: 50%;
-  -ms-transform: translate(-50%, -500%);
+  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  text-align:center
+}
+
+.big-btn {
+      width: 90px;
+      height: 40px;
 }
