@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SignQuest</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/game_style.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body { text-align: center; background-color: #b100ff; } 
+        body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+        .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+        .fa-anchor,.fa-coffee {font-size:200px}
+    </style>
+
+    <h1 class="title">SCORES</h1>
+</head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoreboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='scores.css') }}">
+</head>
+<body>
+    <div id="scoreboard">Loading scores...</div>
+    <script src="{{ url_for('static', filename='scores.js') }}"></script>
+</body>
+
+<head>
+    <body>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/button.css') }}">
+    <header class="container" style="padding:128px 16px">
+        <button onclick="window.location.href='/camera'" class="hover-button">Back to game</button>
+    </header>
+    </body>
+</head>
+</html>

@@ -1,0 +1,12 @@
+  body {
+    text-align: center; 
+  }
+  
+  .timer, .round-over {
+    font-size: 48px;
+  }
+  
+  .round-over {
+    display: none;
+  }
+  

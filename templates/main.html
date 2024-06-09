@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Camera Stream</title>
+    <title>SignQuest</title>
     <style>
         body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
@@ -18,13 +18,46 @@
     <script src="{{url_for('static', filename='script.js')}}"></script>
 </head>
 
-<div class="text-container">
-    <p class="text">This is the first sentence.</p>
-    <p class="text">This is the second sentence.</p>
-    <p class="text">This is the third sentence.</p>
-</div>
-<div class="prompt" id="prompt">Press space to continue</div>
-<body>
-    <img id="video" src="{{ url_for('video_feed') }}" width="640" height="480">
-</body>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/game_style.css') }}">
+    <div class="text-container">
+        <p class="text">This is the first sentence.</p>
+        <p class="text">This is the second sentence.</p>
+        <p class="text">This is the third sentence.</p>
+    </div>
+    <div class="prompt" id="prompt">Press space to continue</div>
+    <body>
+        <img id="video" src="{{ url_for('video_feed') }}" width="640" height="480">
+    </body>
+</head>
+<p id="randomWord"></p>
+<script>
+    const words = ['apple', 'banana', 'orange', 'grape', 'kiwi'];
+
+    function getRandomWord() {
+    const randomIndex = Math.floor(Math.random() * words.length);
+    return words[randomIndex];
+    }
+
+    const randomWordElement = document.getElementById('randomWord');
+    randomWordElement.textContent = getRandomWord();
+</script>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/timer.css') }}">
+    <body>
+        <div class="timer" id="timer">60</div>
+        <div class="round-over" id="roundOver">Round Over!</div>
+        <script src="{{url_for('static', filename='timer.js')}}"></script>
+    </body>
+</head>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/button.css') }}">
+    <body>
+        <header class="container" style="padding:64px 16px">
+            <button onclick="window.location.href='/scores'" class="hover-button">Scores</button>
+        </header>
+    </body>
+</head>
 </html>

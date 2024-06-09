@@ -1,8 +1,10 @@
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, Response, jsonify
 import cv2
 import mediapipe as mp
 
 app = Flask(__name__)
+
+scores = [100, 200, 150, 250, 300]
 
 mp_hands = mp.solutions.hands
 hands = mp_hands.Hands()
@@ -34,9 +36,17 @@ def index():
 def camera():
     return render_template('main.html')
 
+@app.route('/scores')
+def scores():
+    return render_template('scores.html')
+
 @app.route('/video_feed')
 def video_feed():
     return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route('/get_scores')
+def get_scores():
+    return jsonify(scores)
 
 if __name__ == "__main__":
     app.run(debug=True)

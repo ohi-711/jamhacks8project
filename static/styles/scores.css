@@ -1,0 +1,15 @@
+body {
+  background-color: #f0f8ff; /* Light blue background color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+#scoreboard {
+  text-align: center;
+  font-size: 2em;
+  color: #333;
+}
