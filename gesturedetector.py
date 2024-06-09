@@ -65,15 +65,16 @@ while cam.isOpened():
             if word_index >= len(words):
                  break
             elif evaluate_gesture(words[word_index], hand_landmarks.landmark):
-                print(f"Correct, {words[word_index]}")
+                cv2.putText(frame, f"Correct, {words[word_index]}",(75, 100), cv2.FONT_HERSHEY_PLAIN, 4, (0,0,0), 3,)
                 # Only moves on to the next word if the word guessed was correct
                 word_index += 1 
                 time.sleep(2) # Delay between detecting next image
             else:
-                print("Keep Trying!")
+                cv2.putText(frame, "Keep Trying ",(150, 100), cv2.FONT_HERSHEY_PLAIN, 4, (0,0,0), 3, )
 
     frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
     cv2.imshow("Display Screen", frame)
     
 cam.release()
 cv2.destroyAllWindows()
+
