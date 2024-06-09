@@ -20,28 +20,29 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/game_style.css') }}">
-    <div class="text-container">
-        <p class="text">This is the first sentence.</p>
-        <p class="text">This is the second sentence.</p>
-        <p class="text">This is the third sentence.</p>
-    </div>
-    <div class="prompt" id="prompt">Press space to continue</div>
+
     <body>
-        <img id="video" src="{{ url_for('video_feed') }}" width="640" height="480">
+        <button id="runScriptButton">Start Game</button>
+        <pre id="output"></pre>
+        <script>
+            document.getElementById('runScriptButton').addEventListener('click', () => {
+                fetch('/run_script', { method: 'POST' })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.output) {
+                            document.getElementById('output').textContent = data.output;
+                        } else if (data.error) {
+                            document.getElementById('output').textContent = 'Error: ' + data.error;
+                        }
+                    })
+                    .catch(error => {
+                        document.getElementById('output').textContent = 'Fetch error: ' + error;
+                    });
+            });
+        </script>
     </body>
+
 </head>
-<p id="randomWord"></p>
-<script>
-    const words = ['apple', 'banana', 'orange', 'grape', 'kiwi'];
-
-    function getRandomWord() {
-    const randomIndex = Math.floor(Math.random() * words.length);
-    return words[randomIndex];
-    }
-
-    const randomWordElement = document.getElementById('randomWord');
-    randomWordElement.textContent = getRandomWord();
-</script>
 
 <head>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/timer.css') }}">

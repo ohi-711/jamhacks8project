@@ -77,4 +77,3 @@ while cam.isOpened():
     
 cam.release()
 cv2.destroyAllWindows()
-

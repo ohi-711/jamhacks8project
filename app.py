@@ -1,7 +1,8 @@
-from flask import Flask, render_template, Response, jsonify
+from flask import Flask, render_template, Response, jsonify, request
 import cv2
 import mediapipe as mp
 import json
+import subprocess
 
 app = Flask(__name__)
 
@@ -31,6 +32,10 @@ def generate_frames():
 def index():
     return render_template('index.html')
 
+@app.route('/instructions')
+def instructions():
+    return render_template('instructions.html')
+
 @app.route('/camera')
 def camera():
     return render_template('main.html')
@@ -48,6 +53,16 @@ def get_scores():
     with open('scores.json') as json_file:
         data = json.load(json_file)
     return jsonify(data)
+
+@app.route('/run_script', methods=['POST'])
+def run_script():
+    try:
+        # Run the Python script
+        result = subprocess.run(['python', 'gesturedetector.py'], capture_output=True, text=True)
+        output = result.stdout
+        return jsonify({'output': output})
+    except Exception as e:
+        return jsonify({'error': str(e)})
 
 if __name__ == "__main__":
     app.run(debug=True)
