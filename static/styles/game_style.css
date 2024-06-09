@@ -1,7 +1,7 @@
-.text {
-    display: none; /* Hide all sentences by default */
+  .text {
+    display: none; 
   }
   
   .visible {
-    display: block; /* Display the sentence */
+    display: block;
   }
